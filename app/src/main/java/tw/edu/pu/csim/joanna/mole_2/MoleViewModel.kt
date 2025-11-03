@@ -39,15 +39,16 @@ class MoleViewModel: ViewModel() {
 
     private fun startCounting() {
         viewModelScope.launch {
-            while (true) { // 無限循環，每秒增加一次
+            while (stay < 60) { // 無限循環，每秒增加一次
                 delay(1000L)
                 stay++ // 計數器加 1，這會自動觸發 UI 更新
-                moveMole()
+                if (stay < 60)
+                    moveMole()
             }
         }
     }
 
-    fun getArea(gameSize: IntSize, moleSize:Int) {
+    fun getArea(gameSize: IntSize, moleSize: Int) {
         maxX = gameSize.width - moleSize
         maxY = gameSize.height - moleSize
     }
@@ -58,7 +59,8 @@ class MoleViewModel: ViewModel() {
     }
 
     fun incrementCounter() {
-        counter++
+        if (stay < 60) {
+            counter++
+        }
     }
-
 }

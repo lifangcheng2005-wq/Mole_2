@@ -64,7 +64,7 @@ fun MoleScreen(moleViewModel: MoleViewModel = viewModel()) {
 
     Alignment.Center
     ) {
-        Text("分數: $counter \n時間: $stay")
+        Text("打地鼠遊戲(程莉芳)\n分數: $counter \n時間: $stay")
     }
 
     Image(
